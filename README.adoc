@@ -1,0 +1,36 @@
+= AWS Kinesis Streams app
+
+Amazon Kinesis Firehose is the easiest way to load streaming data into AWS. +
+Application is an example producer that writes data to Amazon Kinesis Streams.
+
+=== Used Frameworks
+* Spring Boot
+* AWS SDK for Java
+* Docker
+* jUnit
+* Mockito
+
+=== Installation and Getting Started
+* https://aws.amazon.com/blogs/aws/amazon-kinesis-firehose-simple-highly-scalable-data-ingestion/[Create Delivery Stream on AWS]
+* Update application.properties: +
+firehose.accessKey={your_access_key} +
+firehose.secretKey={your_secret_key} +
+firehose.endpoint={firehose_endpoint}
+
+=== Run using maven
+[indent=0]
+----
+	$ mvn spring-boot:run
+----
+
+=== Run on docker
+Build docker image:
+[indent=0]
+----
+	$ mvn clean package -Pdocker
+----
+Run:
+[indent=0]
+----
+	$ docker run -p 8080:8080 kinesis-firehose
+----
